@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="Simple Login Task">
+    <description>WordPress Coding Standards for Simple Login Task Plugin</description>
+    
+    <!-- What to scan -->
+    <file>.</file>
+    
+    <!-- Exclude directories -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/src/build/*</exclude-pattern>
+    <exclude-pattern>*/assets/src/node_modules/*</exclude-pattern>
+    
+    <!-- Use WordPress Coding Standards -->
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
+    
+    <!-- Exclude filename rules that conflict with PSR-4 autoloading -->
+    <rule ref="WordPress.Files.FileName">
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+    </rule>
+    
+    <!-- Allow short array syntax [] instead of array() -->
+    <rule ref="Generic.Arrays.DisallowShortArraySyntax">
+        <severity>0</severity>
+    </rule>
+</ruleset>

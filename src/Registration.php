@@ -30,14 +30,12 @@ class Registration {
 	 * Show extra radio input fields on registration form.
 	 */
 	public function show_radio_inputs() {
-		$file = plugin_dir_path( __FILE__ ) . '../views/registration.php';
-		if ( file_exists( $file ) ) {
-			include_once $file;
-		}
+		// Add a container div for React to mount the form.
+		echo '<div id="lp-registration-form" data-nonce="' . esc_attr( wp_create_nonce( 'registration_nonce_action' ) ) . '"></div>';
 	}
 
 	/**
-	 * Save extra fields to user meta
+	 * Save extra fields to user meta.
 	 *
 	 * @param int $user_id User ID.
 	 */
@@ -72,6 +70,3 @@ class Registration {
 		}
 	}
 }
-
-// Initialize the class.
-new Registration();
